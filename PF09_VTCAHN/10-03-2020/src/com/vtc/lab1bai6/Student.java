@@ -126,6 +126,7 @@ public class Student {
 
     }
     public void inputMarks() {
+        System.out.println("Enter mark for student : "+this.fullName);
         System.out.println("Enter math : ");
         this.math = this.getScanner().nextInt();
 

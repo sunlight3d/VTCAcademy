@@ -1,5 +1,7 @@
 package com.vtc.lab1;
 
+import com.vtc.lab1bai6.StudentManagement;
+
 public class Main {
     //args = arguments = parameters
     public static void main(String[] args) {
@@ -14,6 +16,13 @@ public class Main {
         dsPhanSo.themPhanSo(phanSo3);
         dsPhanSo.sapXep();
         dsPhanSo.hienThi();
+        StudentManagement studentManagement = new StudentManagement();
+        studentManagement.inputStudents();
+        studentManagement.inputMarks();
+        studentManagement.showAllStudents();
+        studentManagement.findStudentsByStudentCode();
+        studentManagement.sortByTotalMarks();
+        studentManagement.giveScholarShips();
 
     }
 }

@@ -24,7 +24,7 @@ public class StudentManagement {
             student.inputMarks();
         }
     }
-    public void showAlStudents() {
+    public void showAllStudents() {
         for(Student student: this.students) {
             student.show();//viec show thong tin tung student la cong viec cua Student
         }
@@ -53,6 +53,7 @@ public class StudentManagement {
         } else if(direction == 1) {
             this.students.sort((studentA, studentB) -> studentB.getSum().compareTo(studentA.getSum()));
         }
+        this.showAllStudents();
 
     }
     public void giveScholarShips() {
