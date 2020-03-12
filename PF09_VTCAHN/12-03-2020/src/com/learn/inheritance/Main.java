@@ -1,5 +1,9 @@
 package com.learn.inheritance;
 
+import com.lab2.bai01.Ellipse;
+import com.lab2.bai01.MyCircle;
+import com.lab2.bai02.*;
+
 import java.security.PrivilegedExceptionAction;
 
 //Nhan xet: ca 2 class Rectangle va class Circle deu co thuoc tinh giong nhau la name, color
@@ -30,5 +34,34 @@ public class Main {
         Cirle c1 = new Cirle("circle A", "blue", 5.0);
         System.out.println("Dien tich hinh tron A = "+c1.getArea());
         System.out.println("Detail of c1 = "+c1.toString());
+        System.out.println("Bai 1 - lab 2");
+        Ellipse ellipseA = new Ellipse(10.0, 5.0);
+        System.out.println("Dien tich ellipse A  =  "+ellipseA.tinhDienTich());
+        System.out.println("Chu vi ellipse A  =  "+ellipseA.tinhChuVi());
+        MyCircle cirleA = new MyCircle(10.0);
+        System.out.println("Thong tin chi tiet circleA = "+cirleA.toString());
+        System.out.println("Dien tich hinh tron A : "+cirleA.tinhDienTich());
+        System.out.println("Chu vi hinh tron A : "+cirleA.tinhChuVi());
+        System.out.println("Bai 2 - lab 2");
+        //tao ra 1 doi tuong hinh chu nhat
+        HinhChuNhat hinhChuNhatA = new HinhChuNhat(10, 5);
+        System.out.println("Dien tich hinh chu nhat A = "+hinhChuNhatA.tinhDienTich());
+        System.out.println("Chu vi hinh chu nhat A = "+hinhChuNhatA.tinhChuVi());
+        HinhVuong hinhVuongA = new HinhVuong(5);
+        System.out.println("Dien tich hinh vuong A = "+hinhVuongA.tinhDienTich());
+        System.out.println("Chu vi hinh vuong A = "+hinhVuongA.tinhChuVi());
+        TamGiac tamGiacA = new TamGiac(1.0,2.0,3.0);
+        System.out.println("Dien tich tam giac A = "+tamGiacA.tinhDienTich());
+        System.out.println("Chu vi tam giac A = "+tamGiacA.tinhChuVi());
+
+        TamGiacCan tamGiacB = new TamGiacCan(1.0,3.0);
+        System.out.println("Dien tich tam giac B = "+tamGiacB.tinhDienTich());
+        System.out.println("Chu vi tam giac B = "+tamGiacB.tinhChuVi());
+
+        TamGiacDeu tamGiacC = new TamGiacDeu(3.0);
+        System.out.println("Dien tich tam giac C = "+tamGiacC.tinhDienTich());
+        System.out.println("Chu vi tam giac C = "+tamGiacC.tinhChuVi());
+
+
     }
 }
