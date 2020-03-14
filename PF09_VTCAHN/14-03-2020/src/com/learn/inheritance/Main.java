@@ -19,7 +19,7 @@ import java.util.Scanner;
 //Bai toan cua minh chi co Rectangle
 //A lop cha, B lop con cua A, C la cua B => chi len ke thua den <= 3
 //thuc te chi len ke thua 2 levels
-public class Main {
+class Main {
     private static Scanner getScanner() {
         return new Scanner(System.in);
     }
