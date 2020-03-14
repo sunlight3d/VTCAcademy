@@ -40,6 +40,17 @@ class Main {
         }catch (Exception e) {
             e.printStackTrace();
         }
-
+        //Co the tao 1 doi tuong tu Abstract Class ko ? NO, vi no dang unfinished
+        //Human humanA = new Human("Hoang", 18);
+        //Co the tao doi tuong tu subclass ke thua tu Abstract Class ? Yes
+        Engineer mrHoang = new Engineer("Hoang", 18, "IT dev");
+        mrHoang.learn();
+        //Mot Class duoc phep ke thua may Abstract Class ? only One!
+        //JAVA: 1 con thi co 1 Cha, 1 cha co the co nhieu Con => bt
+        //trong C++, Python KO NHU THE ! 1 con thi co Nhieu Cha, 1 cha co the co nhieu Con
+        //Gia su bai toan:
+        //co 1 class Student, co cac phuong playFootball, playTennis,...=> phuong thuc lien quan viec an choi
+        //co phuong thuc gotoLibrary, gotoSchool => thuoc nhom cac phuong thuc lien quan hoc hanh
+        //=> sinh ra mot cai goi la Interface
     }
 }
