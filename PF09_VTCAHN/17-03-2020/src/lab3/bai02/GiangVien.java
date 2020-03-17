@@ -1,6 +1,13 @@
 package lab3.bai02;
 
+import java.util.Scanner;
+
 abstract public class GiangVien {
+    public static final Integer GIANG_VIEN_CO_HUU = 0;
+    public static final Integer GIANG_VIEN_THINH_GIANG = 1;
+    public Scanner getScanner() {
+        return new Scanner(System.in);
+    }
     public static final Double THU_LAO_CO_BAN = 90_000.0;
     //la abstact hay ko ? ok vi trong nay ko viet duoc phuong thuc tinh tien luong
     //họ tên, ngày sinh, học hàm, học vị, ngày bắt đầu công tác tại trung tâm
@@ -9,9 +16,27 @@ abstract public class GiangVien {
     private String hocHam;//giao su
     private String hocVi;//tien si
     private String ngayBatDauCongTac;
-    private Double soGioLam;
+    private Double soGioLam = 0.0;
     abstract public Double tinhLuong();
+    public void input() {
+        System.out.println("Nhap ho ten : ");
+        this.hoten = getScanner().nextLine();
 
+        System.out.println("Nhap ngay sinh : ");
+        this.ngaySinh= getScanner().nextLine();
+
+        System.out.println("Nhap hoc ham: ");
+        this.hocHam = getScanner().nextLine();
+
+        System.out.println("Nhap hoc vi : ");
+        this.hocVi = getScanner().nextLine();
+
+        System.out.println("Nhap ngay bat dau cong tac : ");
+        this.ngayBatDauCongTac = getScanner().nextLine();
+
+    }
+
+    public GiangVien() {}
     public GiangVien(String hoten, String ngaySinh,
                      String hocHam, String hocVi,
                      String ngayBatDauCongTac,
@@ -35,18 +60,17 @@ abstract public class GiangVien {
 
     @Override
     public String toString() {
+        String soGioLam = this.soGioLam > 0.0 ? (", soGioLam='" + this.soGioLam) : "";
         return "GiangVien{" +
                 "hoten='" + hoten + '\'' +
                 ", ngaySinh='" + ngaySinh + '\'' +
                 ", hocHam='" + hocHam + '\'' +
                 ", hocVi='" + hocVi + '\'' +
                 ", ngayBatDauCongTac='" + ngayBatDauCongTac + '\'' +
-                ", soGioLam='" + soGioLam + '\'' +
-                '}';
+                soGioLam +"\n";
     }
 
-    public GiangVien() {
-    }
+
 
     public String getHoten() {
         return hoten;

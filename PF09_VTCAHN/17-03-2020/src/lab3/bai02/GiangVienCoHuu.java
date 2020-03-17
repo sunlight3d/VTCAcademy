@@ -35,4 +35,24 @@ public class GiangVienCoHuu extends GiangVien {
     public Double tinhLuong() {
         return getSoGioLam() * GiangVien.THU_LAO_CO_BAN + luongCoBan * heSoLuong;
     }
+
+    GiangVienCoHuu() {}
+    @Override
+    public void input() {
+        super.input();
+        System.out.println("Nhap luong co ban : ");
+        this.luongCoBan = getScanner().nextDouble();
+
+        System.out.println("Nhap he so luong : ");
+        this.heSoLuong = getScanner().nextDouble();
+
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                "luongCoBan=" + luongCoBan +
+                ", heSoLuong=" + heSoLuong+"\n";
+
+    }
 }
