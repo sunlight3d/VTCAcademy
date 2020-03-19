@@ -1,24 +1,23 @@
 package com.asignment3.controllers;
 
 import com.asignment3.Main;
-import com.asignment3.models.Book;
-
+import com.asignment3.models.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class BookManagement  implements IManagement{
-    private ArrayList<Book> books = new ArrayList<>();
+public class MemberCardManagement implements IManagement{
+    private ArrayList<MemberCard> cards = new ArrayList<>();
     @Override
     public void showMenu() {
         int choice = -1;
         while(choice != 0) {
-            System.out.println("Quản lý sách");
+            System.out.println("Quản lý thẻ thư viện");
             System.out.println("----------------------------------------");
-            System.out.println("1. Xem danh sách sách");
-            System.out.println("2. Cập nhật thông tin sách");
-            System.out.println("3. Thêm mới một quyển sách");
+            System.out.println("1. Xem danh thẻ thư viện");
+            System.out.println("2. Cập nhật thông tin thẻ");
+            System.out.println("3. Thêm mới một thẻ");
             System.out.println("0. Trở về menu chính");
             System.out.println("----------------------------------------");
             System.out.println("Mời bạn lựa chọn(0 - 3)");
@@ -43,12 +42,12 @@ public class BookManagement  implements IManagement{
     }
     @Override
     public void input() {
-        System.out.println("======== Thêm mới một quyển sách ========");
+        System.out.println("======== Thêm mới một thẻ ========");
         Boolean continueOrNot = true;
         while(continueOrNot == true) {
-            Book newBook = new Book();
-            newBook.input();
-            books.add(newBook);
+            MemberCard newCard = new MemberCard();
+            newCard.input();
+            cards.add(newCard);
             System.out.println("Ban co muon tiep tuc(Y/N):");
             continueOrNot = getScanner().nextLine().equalsIgnoreCase("y") ? true : false;
         }
@@ -56,22 +55,22 @@ public class BookManagement  implements IManagement{
 
     @Override
     public void update() {
-        System.out.println("======== Cập nhật thông tin sách ========");
+        System.out.println("======== Cập nhật thông tin thẻ ========");
         Boolean continueOrNot = true;
         while(continueOrNot == true) {
-            //Má sách bắt đầu bằng chữ B, sau đó là 2 số => regex
-            System.out.println("- Nhập mã sách:");
-            final String maSach = getScanner().nextLine();
-            ArrayList<Book> result = (ArrayList<Book>)this.books
+            //Má thẻ bắt đầu bằng chữ B, sau đó là 2 số => regex
+            System.out.println("- Nhập mã thẻ:");
+            final String maThe = getScanner().nextLine();
+            ArrayList<MemberCard> result = (ArrayList<MemberCard>)this.cards
                     .stream()
-                    .filter(eachBook -> eachBook.getMaSach()
-                            .equalsIgnoreCase(maSach))
-                            .collect(Collectors.toList());
+                    .filter(eachCard -> eachCard.getMaThe()
+                            .equalsIgnoreCase(maThe))
+                    .collect(Collectors.toList());
             if(result.isEmpty()) {
-                System.err.println("Ko tim thay sach voi ma :"+maSach);
+                System.err.println("Ko tim thay the voi ma :"+maThe);
             } else {
-                Book book = result.get(0);
-                book.update();
+                MemberCard card = result.get(0);
+                card.update();
             }
             System.out.println("Ban co muon tiep tuc(Y/N):");
             continueOrNot = getScanner().nextLine().equalsIgnoreCase("y") ? true : false;
@@ -81,12 +80,12 @@ public class BookManagement  implements IManagement{
     @Override
     public void showAll() {
         System.out.println("================================================================================");
-        System.out.println("Danh sách sách");
+        System.out.println("Danh thẻ thẻ");
         System.out.println("================================================================================");
-        System.out.println("Mã sách |Tên sách | Tên tác giả | Số lượng | Danh mục");
+        System.out.println("Mã thẻ |Tên thẻ | Tên tác giả | Số lượng | Danh mục");
         System.out.println("================================================================================");
-        for(Book book: books) {
-            System.out.println(book.toString());
+        for(MemberCard card: cards) {
+            System.out.println(card.toString());
         }
         System.out.println("================================================================================");
     }

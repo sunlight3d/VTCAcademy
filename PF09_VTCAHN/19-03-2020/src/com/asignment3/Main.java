@@ -1,5 +1,8 @@
 package com.asignment3;
 
+import com.asignment3.controllers.BookManagement;
+import com.asignment3.controllers.MemberCardManagement;
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +12,11 @@ public class Main {
     //tranh thu hoc them: kiem tra dinh dang cmnd, dinh dan id cua sa
     public static void main(String[] args) {
         int choice = -1;
+        BookManagement bookManagement = new BookManagement();
+        MemberCardManagement memberCardManagement = new MemberCardManagement();
+        //tuong tac giua cac management voi nhau
+        //cac ham: book voi masach abc  da ton tai chua
+        //phuogn thuc cua management
         while(choice != 0) {
             System.out.println("--- Chào mừng đến với thư viện VTCA ---");
             System.out.println("----------------------------------------");
@@ -21,11 +29,11 @@ public class Main {
             choice = getScanner().nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Ban chon 1");
+                    bookManagement.showMenu();
                     Main.clearScreen();
                     break;
                 case 2:
-                    System.out.println("Ban chon 2");
+                    memberCardManagement.showMenu();
                     Main.clearScreen();
                     break;
                 case 3:
