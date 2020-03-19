@@ -14,6 +14,8 @@ public class Main {
         int choice = -1;
         BookManagement bookManagement = new BookManagement();
         MemberCardManagement memberCardManagement = new MemberCardManagement();
+        bookManagement.memberCardManagement = memberCardManagement;
+        memberCardManagement.bookManagement = bookManagement;
         //tuong tac giua cac management voi nhau
         //cac ham: book voi masach abc  da ton tai chua
         //phuogn thuc cua management

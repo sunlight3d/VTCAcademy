@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class BookManagement  implements IManagement{
+    public MemberCardManagement memberCardManagement;//ko khoi tao
     private ArrayList<Book> books = new ArrayList<>();
     @Override
     public void showMenu() {
