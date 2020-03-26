@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class LoanCard extends Model {
     public MemberCardManagement memberCardManagement;
     private Date ngayMuon;
-    private Date ngayTra;
+    private Date ngayTra = new Date();
     private String mathe = "";
     private String maTheThuVien = "";
     private String tenSach = "";
@@ -81,6 +81,7 @@ public class LoanCard extends Model {
 
     @Override
     public void input() {
+        isValidate = true;
         System.out.println("Nhap ma the");
         String mathe = getScanner().nextLine();
 
@@ -98,7 +99,6 @@ public class LoanCard extends Model {
         if(this.memberCardManagement.kiemTraTonTaiMaThe(matheThuVien) == false) {
             System.out.println("Ko tim thay ma the");
             isValidate = false;
-            return;
         }
         //1.validate sach co ton tai hay ko?
 
@@ -107,13 +107,16 @@ public class LoanCard extends Model {
             //2.validate so luong sach > 0 hay ko
             System.out.println("Ko tim thay sach voi maSach:"+maSach + "va tensach : "+tenSach);
             isValidate = false;
-            return;
         }
         if(this.bookManagement.muonSach(maSach) == false) {
             isValidate = false;
         }
-
-        isValidate = true;
+        if(isValidate == true) {
+            this.mathe = mathe;
+            this.maTheThuVien = matheThuVien;
+            this.tenSach = tenSach;
+            this.maSach = maSach;
+        }
     }
     @Override
     public void update() {

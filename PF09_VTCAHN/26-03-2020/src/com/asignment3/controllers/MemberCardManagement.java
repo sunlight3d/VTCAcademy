@@ -3,11 +3,12 @@ package com.asignment3.controllers;
 import com.asignment3.Main;
 import com.asignment3.models.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class MemberCardManagement implements IManagement{
+public class MemberCardManagement implements IManagement, Serializable {
     public static String filePath = "c:\\temp\\membercards.dat";
     private ArrayList<MemberCard> memberCards = new ArrayList<>();
     public BookManagement bookManagement;
@@ -35,6 +36,16 @@ public class MemberCardManagement implements IManagement{
         } finally {
             this.memberCards = memberCards;
             return memberCards;
+        }
+    }
+
+    public MemberCard getMemberCardFromTheThuVien(String theThuVien) {
+        try {
+            return (MemberCard)getMemberCardsFromFile().stream()
+                    .filter(memberCard -> memberCard.getMaThe().equalsIgnoreCase(theThuVien))
+                    .collect(Collectors.toList()).get(0);
+        } catch (Exception e) {
+            return null;
         }
     }
 

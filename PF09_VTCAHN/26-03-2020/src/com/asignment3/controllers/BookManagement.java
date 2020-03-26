@@ -5,6 +5,7 @@ import com.asignment3.models.Book;
 import com.asignment3.models.Model;
 
 import java.io.File;
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class BookManagement  implements IManagement{
+public class BookManagement  implements IManagement, Serializable {
     public static String filePath = "c:\\temp\\books.dat";
     public MemberCardManagement memberCardManagement;//ko khoi tao
     private ArrayList<Book> books = new ArrayList<>();
@@ -33,6 +34,7 @@ public class BookManagement  implements IManagement{
         }catch (Exception e){
             System.err.println("Cannot getMemberCardsFromFile:"+e.toString());
         } finally {
+            this.books = books;
             return books;
         }
     }
@@ -118,14 +120,16 @@ public class BookManagement  implements IManagement{
 
     public  Boolean muonSach(String maSach) {
         try {
-            Book foundBook = (Book)(this.getBooksFromFile().stream()
+            ArrayList<Book> list2 = (ArrayList<Book>) this.getBooksFromFile().stream()
                     .filter(book -> book.getMaSach().equalsIgnoreCase(maSach))
-                    .collect(Collectors.toList()).get(0));
+                    .collect(Collectors.toList());
+            Book foundBook = (Book)(list2.get(0));
             if(foundBook.getSoLuong() <=0) {
                 System.err.println("Co sach nhung nguoi khac muon roi - HET HANG");
                 return false;
             }
             foundBook.setSoLuong(foundBook.getSoLuong() - 1);
+            FileManagement.saveToFile(list2, BookManagement.filePath);
             return true;
         }catch (Exception e){
             System.err.println("Ko tim thay ma sach");
@@ -135,13 +139,15 @@ public class BookManagement  implements IManagement{
     public void themMotQuyenSach(String maSach) {
         //tat ca nhung cho lay mang books phai lay tu filer
         //dan den => sua rat nhieu cho
-        if(!getBooksFromFile().stream()
+        ArrayList<Book> list2 = (ArrayList<Book>)getBooksFromFile().stream()
                 .filter(book -> book.getMaSach().equalsIgnoreCase(maSach))
-                .collect(Collectors.toList()).isEmpty()) {
+                .collect(Collectors.toList());
+        if(!list2.isEmpty()) {
             Book foundBook = getBooksFromFile().stream()
                     .filter(book -> book.getMaSach().equalsIgnoreCase(maSach))
                     .collect(Collectors.toList()).get(0);
             foundBook.setSoLuong(foundBook.getSoLuong() + 1);
+            FileManagement.saveToFile(list2, BookManagement.filePath);
         }
     }
     @Override

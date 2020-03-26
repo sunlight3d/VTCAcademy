@@ -14,13 +14,13 @@ public class LoanCardManagement implements IManagement{
     private ArrayList<LoanCard> loanCards = new ArrayList<>();
     private void appendLoanCard(LoanCard loanCard) {
         getLoanCardsFromFile().add(loanCard);
-        FileManagement.saveToFile(loanCard, MemberCardManagement.filePath);
+        FileManagement.saveToFile(loanCards, LoanCardManagement.filePath);
     }
     //viet 1 getter lay books tu file
     public ArrayList<LoanCard> getLoanCardsFromFile() {
         final ArrayList<LoanCard> loanCards = new ArrayList<>();
         try {
-            ArrayList<Model> objects =  FileManagement.readFromFile(MemberCardManagement.filePath);
+            ArrayList<Model> objects =  FileManagement.readFromFile(LoanCardManagement.filePath);
             for(Object object: objects) {
                 if(object instanceof LoanCard) {
                     loanCards.add((LoanCard) object);
@@ -119,13 +119,16 @@ public class LoanCardManagement implements IManagement{
         } else {
             MemberCard memberCard = memberCardManagement
                     .getMemberCardFromTheThuVien(loanCard.getMaTheThuVien());
-            memberCard.getTenChuThe();
+            System.out.println("Mã thẻ thư viện : "+loanCard.getMaTheThuVien());
+            System.out.println("Tên chủ thẻ : "+memberCard.getTenChuThe());
+            System.out.println("Tên sách mượn : "+loanCard.getTenSach());
             System.out.println("Mã thẻ thư viện : ");
             System.out.println(loanCard);
             System.out.println("Ban co muon tra sach ko(y/n) ? ");
             if(getScanner().nextLine().equalsIgnoreCase("y")) {
                 this.bookManagement.themMotQuyenSach(loanCard.getMaSach());
                 loanCard.setNgayTra(new Date());
+                System.out.println("Trả sách thành công !");
                 //cards.remove(foundLoanCard);
             }
         }
@@ -135,7 +138,7 @@ public class LoanCardManagement implements IManagement{
         List<LoanCard> ketQua = this.getLoanCardsFromFile().stream()
                 .filter(card -> card.getNgayMuon().equals(date))
                 .collect(Collectors.toList());
-        for(LoanCard loanCard: getLoanCardsFromFile()) {
+        for(LoanCard loanCard: ketQua) {
             System.out.println(loanCard);
         }
     }
