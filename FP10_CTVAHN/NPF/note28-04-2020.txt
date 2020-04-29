@@ -1,4 +1,0 @@
--Code: Visual Studio Code(IDE), IntelliJ IDEA
-Cloud services: Amazon, Azure(Microsoft), Google Cloud(Server, Firebase, AI,...)
--Graph trong DSA
-request GET: gui tu trinh duyet(Chrome, IE,...)
