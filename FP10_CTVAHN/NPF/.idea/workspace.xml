@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1cf722c5-d64c-4253-87a0-3d0d11c71e0f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/28-04-2020/myapp/src/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/28-04-2020/myapp/src/app/App.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1bDMPXLTNU2xaHpG4can5WCxUbz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1cf722c5-d64c-4253-87a0-3d0d11c71e0f" name="Default Changelist" comment="" />
+      <created>1588162187565</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588162187565</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="432" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1588162207083">
+      <screen x="0" y="0" width="1707" height="930" />
+    </state>
+    <state x="432" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1707.930@0.0.1707.930" timestamp="1588162207083" />
+  </component>
+</project>
