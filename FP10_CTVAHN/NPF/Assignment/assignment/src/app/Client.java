@@ -12,11 +12,14 @@ public class Client {
     public static void main(String[] args) throws Exception {
         System.out.println("I am client");
         try {
+            Socket socket = new Socket("localhost",6868);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));            
             Client client = new Client("localhost", 6868);
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter your sms : ");
             String message = scanner.nextLine();
             client.send(message);
+
         } catch (Exception e) {
             System.err.println("Error connecting server. " + e.toString());
         }
@@ -41,7 +44,6 @@ public class Client {
             outputStream.write(message.getBytes());
             System.out.println("CLIENT send: " + message);
             outputStream.flush();
-
         } catch (Exception e) {
             System.err.println("FROM CLIENT: Cannot send sms. Error" + e.toString());
         }
