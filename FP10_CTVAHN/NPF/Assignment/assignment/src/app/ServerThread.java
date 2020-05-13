@@ -32,7 +32,7 @@ public class ServerThread extends Thread {
             do {              
                 bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 clientMessage = bufferedReader.readLine();  
-                server.broadcast(userName + "says : " + clientMessage);
+                server.broadcast(userName + " says : " + clientMessage);
  
             } while (!clientMessage.equals("bye"));
  

@@ -28,9 +28,7 @@ public class Server {
                 this.serverThreads.add(serverThread);
                 // DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());                                
                 serverThread.start();
-
             }
-
         } catch (Exception e) {
             System.out.println("Error in the server " + e.getMessage());
             e.printStackTrace();

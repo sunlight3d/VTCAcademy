@@ -8,7 +8,6 @@ public class MonitorClient {
     private String serverName = "localhost";
     private Integer port = 6868;
     private Socket socket;
-    private PrintWriter printWriter;
 
     MonitorClient(String serverName, Integer port) {
         this.serverName = serverName;

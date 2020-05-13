@@ -56,6 +56,7 @@ public class Client {
                             printWriter.println(inputString);
                  
                         } while (!inputString.equals("bye"));
+                        System.out.println("End client");
                     }  catch (IOException ex) {
                         System.out.println("I/O Error: " + ex.getMessage());
                     }                     
