@@ -22,6 +22,7 @@ public class Server {
             System.out.println("waiting client connection on port : " + port);
             while (true) {
                 Socket socket = serverSocket.accept();
+                System.out.println("Connected to the chat server");
                 ServerThread serverThread = new ServerThread(socket);
                 serverThread.server = this;
                 this.serverThreads.add(serverThread);

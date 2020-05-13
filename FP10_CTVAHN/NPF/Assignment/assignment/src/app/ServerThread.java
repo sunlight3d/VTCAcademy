@@ -26,8 +26,7 @@ public class ServerThread extends Thread {
             InputStream inputStream = socket.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             this.userName = bufferedReader.readLine();            
-            
-            server.broadcast("New user connected: " + userName);
+            System.out.println("New user connected: " + userName);
  
             String clientMessage; 
             do {              
@@ -39,9 +38,9 @@ public class ServerThread extends Thread {
  
             server.removeThread(this);
             socket.close();
-            server.broadcast(userName + " has signed out.");
+            System.out.println(userName + " has signed out.");            
             bufferedReader.close();
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             System.out.println("Error in ServerThread: " + ex.getMessage());
             ex.printStackTrace();
         }
